@@ -1,0 +1,129 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+    padding: 40px;
+    grid-gap: 40px;
+}
+
+.card{
+    background-color: #000000;
+    border-radius: 20px;
+    box-shadow: 0 0 30px black;
+}
+
+.container2 {
+    position: relative;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    margin: auto;
+}
+@font-face {
+  font-family: 'SHPinscher-Regular';
+  src: url('SHPinscher-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1{
+  font-family: 'SHPinscher-Regular', sans-serif;
+  text-align: center;
+  color : rgb(48, 40, 40);
+  font-size: 350%;
+  margin-top: 50px;
+  margin-bottom: 55px;
+}
+
+h1:hover{
+  color:orange;
+}
+
+.navbar-brand{
+  font-family: 'SHPinscher-Regular', sans-serif;
+  font-size: 250%;
+  color: orange;
+}
+
+.navbar-brand:hover{
+  font-family: 'SHPinscher-Regular', sans-serif;
+  font-size: 250%;
+  color: orange;
+}
+
+.nav-link_ic{
+  font-family: 'SHPinscher-Regular', sans-serif;
+  color: white;
+  font-size: 200%; /*Modification de la taille de l'onglet de connexion et d'inscription*/
+}
+
+.nav-link_ic:hover{
+  font-family: 'SHPinscher-Regular', sans-serif;
+  color: orange;
+  font-size: 230%; /*Modification de la taille de l'onglet de connexion et d'inscription*/
+}
+
+
+.nav-link{
+  font-family: 'SHPinscher-Regular', sans-serif;
+  font-size: 200%; /*Modification de la taille des autres onglets*/
+  color:rgb(212, 210, 210);
+}
+
+.nav-link:hover{
+  font-family: 'SHPinscher-Regular', sans-serif;
+  color : orange !important; /*Onglet devient jaune lorsque le curseur pointe l'onglet*/
+  font-size: 230%; /*Modification de la taille des autres onglet lorsque le curseur pointe sur l'onglet */
+}
+
+
+.tableEtat th, td {
+  border: 1px solid black;
+}
+
+.tableEtat {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tableEtat th {
+  font-style: italic;
+  text-align: center;
+}
+
+.tableEtat td {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+.AddForm {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.btnAjouter {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.btnAjouter input {
+  height: 50px;
+  width: 150px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.btnAjouter input:hover{
+  background-color: orange;
+}
