@@ -5,13 +5,19 @@
 <link href="assets/style.css" rel="stylesheet">
 
 <h1>LISTE DE CONSOLE</h1>
-{% if app.user.email is defined and app.user.email == 'micheletmax@gmail.com' %}
-    <div class="buttonsAdmin">
-        <a href="{{ path('AjoutConsole') }}">
-            <input type="submit" value="Ajout">
-        </a>
-    </div>
+
+{% if app.user.id is defined %}
+    {% for role in app.user.roles %}
+        {% if role == "ROLE_ADMIN" %}
+            <div class="buttonsAdmin">
+                <a href="{{ path('AjoutConsole') }}">
+                    <input type="submit" value="Ajout">
+                </a>
+            </div>
+        {% endif %}
+    {% endfor %}
 {% endif %}
+
 
 {% set compteur = 0 %}
 <table>
@@ -36,18 +42,27 @@
                 </article>
             </td> 
             {% if app.user.email is defined and app.user.email == 'micheletmax@gmail.com' %}
-                <div class="buttonsAdmin">
-                    <table>
-                        <tr>
-                            <td>
-                                <a href="{{ path('DeleteConsole', {'id':unConsole.id}) }}">
-                                    <input type="submit" value="Supprimer">
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                
             {% endif %}
+
+            {% if app.user.id is defined %}
+                {% for role in app.user.roles %}
+                    {% if role == "ROLE_ADMIN" %}
+                        <div class="buttonsAdmin">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <a href="{{ path('DeleteConsole', {'id':unConsole.id}) }}">
+                                            <input type="submit" value="Supprimer">
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
     {% endfor %}
 </table>
 

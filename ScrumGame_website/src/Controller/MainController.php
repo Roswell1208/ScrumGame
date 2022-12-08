@@ -14,6 +14,9 @@ use App\Entity\Etat;
 use App\Form\AddEtatType;
 
 use App\Entity\Jeux;
+use App\Entity\Console;
+
+use App\Form\ConsoleType;
 
 class MainController extends AbstractController
 {
@@ -133,69 +136,6 @@ class MainController extends AbstractController
 
         
         return $this->redirectToRoute('consultEtats');
-    }
-}
-
-<?php
-
-namespace App\Controller;
-
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\Request;
-
-use App\Entity\Marque;
-use App\Entity\Etat;
-
-use App\Entity\Console;
-use App\Form\ConsoleType;
-
-use App\Entity\Jeux;
-
-class MainController extends AbstractController
-{
-    /**
-     * @Route("/", name="main")
-     */
-    public function index(): Response
-    {
-        $repoJeux = $this->getDoctrine()->getRepository(Jeux::class);
-        $Jeux = $repoJeux->findAll();
-
-        return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
-            'Jeux' => $Jeux
-        ]);
-    }
-
-    /**
-     * @Route("/consultMarques", name="consultMarques")
-     */
-    public function consultationMarques(): Response
-    {
-        $repoMarques = $this->getDoctrine()->getRepository(Marque::class);
-        $marques = $repoMarques->findAll();
-
-        return $this->render('main/consultationMarques.html.twig', [
-            'controller_name' => 'MainController',
-            'marques' => $marques
-        ]);
-    }
-
-    /**
-     * @Route("/consultEtats", name="consultEtats")
-     */
-    public function consultationEtats(): Response
-    {
-        $repoEtats = $this->getDoctrine()->getRepository(Etat::class);
-        $etats = $repoEtats->findAll();
-
-        return $this->render('main/consultationEtats.html.twig', [
-            'controller_name' => 'MainController',
-            'etats' => $etats
-        ]);
     }
 
     /**
