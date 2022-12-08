@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Consultation des marques</h1>
+
+    <body>
+        <div class="grid">
+
+            {# Parcours des marques en bdd #}
+            {% for uneMarque in marques %}
+                <div class="card">
+                    <div class="container2">
+                        {# Affichage de la photo de la marque #}
+                        <img src="{{ uneMarque.photoMarque}}">
+                    </div>
+                
+
+                    {% if app.user.id is defined %}
+                        {% for role in app.user.roles %}
+                            {% if role == "ROLE_ADMIN" %}
+                                
+                                <div class="btnAjouter">
+                                    <a href="{{ path('marqueDelete', {'id':uneMarque.id}) }}">
+                                        <input type="submit" value="Supprimer">
+                                    </a>
+                                </div>
+
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                </div>
+            {% endfor %}
+
+        </div>
+
+        {% if app.user.id is defined %}
+            {% for role in app.user.roles %}
+                {% if role == "ROLE_ADMIN" %}
+                    <a href="{{ path('AjoutMarque') }}">
+                        <div class="btnAjouter">
+                            <input type="submit" value="Ajouter">
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </body>
+
+{% endblock %}
