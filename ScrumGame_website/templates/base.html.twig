@@ -54,3 +54,60 @@
         {% block body %}{% endblock %}
     </body>
 </html>
+
+<!DOCTYPE html>
+<html>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand">ScrumGame</a>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+            <a class="nav-link" href="{{path('main')}}">Jeux</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{path('consultConsole')}}">Console</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Marque</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Etat</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav justify-content-end">
+            {% if app.user %}
+                <li class="nav-item">
+                    <a class="nav-link_ic" href="{{path('app_logout')}}">Se déconnecter</a> {#Création d'un onglet de déconnexion#}
+                </li>
+
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link_ic" href="{{path('app_login')}}">Connexion</a> {#Création d'un onglet 'Connexion'#}
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link_ic" href="{{path('app_register')}}">Créer un compte</a> {#Création d'un onglet d'inscription#}
+                </li>
+            {% endif %}
+        </ul>
+        </div>
+    </div>
+    </nav>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="assets/bootstrap.min .css">
+        <link rel="stylesheet" href="assets/style.css">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>

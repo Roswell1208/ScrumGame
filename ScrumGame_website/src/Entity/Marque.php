@@ -55,4 +55,9 @@ class Marque
 
         return $this;
     }
+
+    public function __toString() // Permet d'afficher le nom de la marque dans le formulaire
+    {
+        return $this->nomMarque;
+    }
 }
