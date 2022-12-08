@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block section %} <div class = "titre">Bienvenue chez ScrumGame</div> {% endblock %}
+
+{% block body %}
+
+<link href="assets/style.css" rel="stylesheet">
+
+<h1>LISTE DE JEUX</h1>
+
+
+{% set compteur = 0 %}
+<table>
+    {% for unJeu in Jeux %}
+        {% set compteur = compteur + 1 %}
+        {% if compteur % 4 == 0 %}
+            <tr></tr>
+        {% set compteur = 1 %}
+        {% endif %}
+            <td>
+                <article class="card">
+                    <header class="card__thumb">
+                        {#<a href="{{ path('detailsJeux', {id: unJeu.id}) }}">#}
+                        <img src={{unJeu.photoJeu}}>
+                        </a>
+                    </header>
+                    <div class="card__body">
+                        <h2 class="card__title"><a> {#href="{{ path('detailsJeux', {id: unJeu.id}) }}">#}{{unJeu.nomJeu}}</a></h2>
+                    </div>
+                </article>
+            </td> 
+    {% endfor %}
+</table>
+
+
+{% endblock %}

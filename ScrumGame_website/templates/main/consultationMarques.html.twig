@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Consultation des marques</h1>
+
+    <body>
+        <div class="grid">
+
+            {% for uneMarque in marques %}
+                <div class="card">
+                    <div class="container2">
+                        <img src="{{ uneMarque.photoMarque}}">
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </body>
+
+{% endblock %}

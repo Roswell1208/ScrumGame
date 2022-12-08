@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Consultation des Etats</h1>
+
+    <ul>
+        {% for unEtat in etats %}
+
+            <li>{{ unEtat.nomEtat }} - {{ unEtat.descriptionEtat }}</li>
+
+        {% endfor %}
+    </ul>
+
+{% endblock %}
