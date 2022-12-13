@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un Jeux{% endblock %}
+{% block body %}
+
+
+<link href="assets/style.css" rel="stylesheet">
+
+<div class="container_jeux">
+    {{ form_start(form) }}
+        {{ "Etat du Jeu" }}
+        {{ form_widget(form.idEtat) }}
+   
+        {{ "Console du Jeu" }}
+        {{ form_widget(form.idConsole) }}
+
+        {{ "Nom du Jeu" }}
+        {{ form_widget(form.nomJeu) }}
+
+        {{ "Photo du Jeu" }}
+        {{ form_widget(form.photoJeu) }}
+
+        {{ form_rest(form) }}
+        <button type="submit">Ajouter</button>
+    {{ form_end(form) }}
+
+</div>
+
+{% endblock %}
