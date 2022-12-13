@@ -10,8 +10,21 @@
 
 <h1>LISTE DE JEUX</h1>
 
+{% if app.user.email is defined and app.user.email == 'muriennevincent@gmail.com' %}
+    <div class="buttonJeuxAjout">
+        <form action="{{ path('AjoutJeux') }}">
+            <button type="submit">Ajout d'un jeu</button>
+        </form>
+    </div>
+{% endif %}
+
 
 {% set compteur = 0 %}
+
+<div class="searchbar">
+    <input id="searchbar" onchange="search_jeux()" type="text" name="search" placeholder="Rechercher">
+</div>
+
 <table>
     {% for unJeu in Jeux %}
         {% set compteur = compteur + 1 %}
@@ -19,18 +32,30 @@
             <tr></tr>
         {% set compteur = 1 %}
         {% endif %}
+
             <td>
                 <article class="card">
-                    <header class="card__thumb">
-                        {#<a href="{{ path('detailsJeux', {id: unJeu.id}) }}">#}
+                    <div class="card__thumb">
                         <img src={{unJeu.photoJeu}}>
-                        </a>
-                    </header>
-                    <div class="card__body">
-                        <h2 class="card__title"><a> {#href="{{ path('detailsJeux', {id: unJeu.id}) }}">#}{{unJeu.nomJeu}}</a></h2>
                     </div>
+                    <div class="card__body">
+                        <h2 class="card__title"><a>{{unJeu.nomJeu}}</a></h2>
+                    </div>
+
                 </article>
-            </td> 
+
+                {% if app.user.email is defined and app.user.email == 'muriennevincent@gmail.com' %}
+                    <div class="buttonJeuxDelete">
+                        <td>
+                            <form action="{{ path('JeuxDelete', {'id':unJeu.id}) }}">
+                                <button type="submit">Suppression</button>
+                            </form>
+                        </td>
+                    </div>
+                {% endif %}
+
+            </td>
+        
     {% endfor %}
 </table>
 

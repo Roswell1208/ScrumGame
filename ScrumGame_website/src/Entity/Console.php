@@ -73,4 +73,9 @@ class Console
 
         return $this;
     }
+
+    public function __toString() // Permet d'afficher le nom du jeu dans le formulaire d'ajout d'un jeu (permet de retourner une chaine de caractère)
+    {                            // au lieu d'un id
+        return $this->nomConsole;
+    }   
 }
