@@ -86,23 +86,21 @@ h1:hover{
 }
 
 
-.tableEtat th, td {
-  border: 1px solid black;
-}
 
-.tableEtat {
-  margin-left: auto;
-  margin-right: auto;
+.tableEtat table{
+  margin:auto;
 }
 
 .tableEtat th {
   font-style: italic;
   text-align: center;
+  border: 1px solid black;
 }
 
 .tableEtat td {
   padding-left: 15px;
   padding-right: 15px;
+  border: 1px solid black;
 }
 
 
