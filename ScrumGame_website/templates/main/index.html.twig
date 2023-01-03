@@ -10,12 +10,16 @@
 
 <h1>LISTE DE JEUX</h1>
 
-{% if app.user.email is defined and app.user.email == 'muriennevincent@gmail.com' %}
-    <div class="buttonJeuxAjout">
-        <form action="{{ path('AjoutJeux') }}">
-            <button type="submit">Ajout d'un jeu</button>
-        </form>
-    </div>
+{% if app.user.id is defined %}
+    {% for role in app.user.roles %}
+        {% if role == "ROLE_ADMIN" %}
+            <div class="buttonJeuxAjout">
+                <form action="{{ path('AjoutJeux') }}">
+                    <button type="submit">Ajout d'un jeu</button>
+                </form>
+            </div>
+        {% endif %}
+    {% endfor %}
 {% endif %}
 
 
@@ -44,14 +48,18 @@
 
                 </article>
 
-                {% if app.user.email is defined and app.user.email == 'muriennevincent@gmail.com' %}
-                    <div class="buttonJeuxDelete">
-                        <td>
-                            <form action="{{ path('JeuxDelete', {'id':unJeu.id}) }}">
-                                <button type="submit">Suppression</button>
-                            </form>
-                        </td>
-                    </div>
+                {% if app.user.id is defined %}
+                    {% for role in app.user.roles %}
+                        {% if role == "ROLE_ADMIN" %}
+                            <div class="buttonJeuxDelete">
+                                <td>
+                                    <form action="{{ path('JeuxDelete', {'id':unJeu.id}) }}">
+                                        <button type="submit">Suppression</button>
+                                    </form>
+                                </td>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 {% endif %}
 
             </td>

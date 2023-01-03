@@ -40,10 +40,7 @@
                         <h2 class="card__title"><a> {#href="{{ path('detailsJeux', {id: unJeu.id}) }}">#}{{unConsole.nomConsole}}</a></h2>
                     </div>
                 </article>
-            </td> 
-            {% if app.user.email is defined and app.user.email == 'micheletmax@gmail.com' %}
-                
-            {% endif %}
+            </td>
 
             {% if app.user.id is defined %}
                 {% for role in app.user.roles %}
