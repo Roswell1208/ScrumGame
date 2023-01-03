@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %} 
+ 
+{% block title %}Ajout d'une Console{% endblock %} 
+{% block body %} 
+<link href="assets/style.css" rel="stylesheet"> 
+ 
+    {{ form_start(form) }}
+    <td>
+        <article class="card">
+            <header class="card_thumb_console">
+                <div class="card__title">
+                    {{ "Photo de la Console" }} 
+                    {{ form_widget(form.photoConsole) }}
+                </div>
+            </header>
+            <div class="card__body">
+                {{ "Nom de la Console" }} 
+                {{ form_widget(form.nomConsole) }} 
+            </div>
+        </article>
+    </td>
+        {{ "Nom de la Marque" }} 
+        {{ form_widget(form.idMarque) }}
+ 
+        {{ form_rest(form) }} 
+        <button type="submit">Ajouter</button> 
+    {{ form_end(form) }} 
+     
+{% endblock %}
