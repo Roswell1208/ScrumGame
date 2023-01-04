@@ -24,15 +24,6 @@
 
             </div>
 
-        {% else %}
-
-            <p>Vous devez être connecté en administrateur pour continuer</p><br><br>
-            <a href="{{ path('main') }}">
-                <div class="btnAjouter">
-                    <input type="submit" value="Ajouter">
-                </div>
-            </a>
-
         {% endif %}
     {% endfor %}
 {% endif %}
